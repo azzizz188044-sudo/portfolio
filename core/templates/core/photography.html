@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+			<section class="ftco-section-2" style="margin-top: 70px;">
+    <div class="photograhy">
+        <div class="row no-gutters">
+
+            {% for project in projects %}
+            <div class="col-md-3">
+                <a href="{{ project.website }}"
+                   target="_blank"
+                   class="photography-entry img d-flex justify-content-center align-items-center"
+                   style="background-image: url('{{ project.image.url }}');">
+
+                    <div class="overlay"></div>
+
+                    <div class="text text-center">
+                        <h3>#{{ forloop.counter }} Loyiha</h3>
+                        <span>{{ project.title }}</span>
+                    </div>
+
+                </a>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+{% endblock %}

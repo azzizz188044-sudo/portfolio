@@ -1,0 +1,120 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+			<section class="home-slider js-fullheight owl-carousel">
+	      <div class="slider-item js-fullheight" style="opacity: 0.5;background-image:url('{% static 'core/images/bg.jpg' %}');">
+	      	<div class="overlay"></div>
+	        <div class="container-fluid">
+	          <div class="row no-gutters slider-text slider-text-2 js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+	          <div class="col-md-10 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+	            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="color: black;">Loyihalarim tafsiloti</h1>
+	          </div>
+	        </div>
+	        </div>
+	      </div>
+
+	      <div class="slider-item js-fullheight" style=" opacity: 0.4;background-image:url('{% static 'core/images/bg3.jpg' %}');">
+	      	<div class="overlay"></div>
+	        <div class="container-fluid">
+	          <div class="row no-gutters slider-text slider-text-2 js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+	          <div class="col-md-10 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+	            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="color: black;">Loyihalarim tafsiloti</h1>
+	          </div>
+	        </div>
+	        </div>
+	      </div>
+	    </section>
+			<section class="ftco-section">
+	    	<div class="container">
+	    		<div class="row" style="justify-content: center;">
+	    			<div class="col-lg-10">
+	    				{% for project in projects %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="blog-entry ftco-animate">
+
+            <a href="{{ project.website }}"
+               target="_blank"
+               class="img"
+               style="background-image: url('{{ project.image.url }}');">
+            </a>
+
+            <div class="text pt-2 mt-3">
+
+                <h3 class="mb-4">
+                    <a href="{{ project.website }}" target="_blank">
+                        {{ project.title }}
+                    </a>
+                </h3>
+
+                <p class="mb-4">
+                    {{ project.description }}
+                </p>
+
+                <div class="meta-wrap d-md-flex align-items-center">
+                    <div class="half">
+                        <p>
+                            <a href="{{ project.website }}"
+                               target="_blank"
+                               class="btn btn-primary p-3 px-xl-4 py-xl-3">
+                                Sayt havolasi
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% empty %}
+
+<div class="text-center">
+    <h4>Hozircha loyiha mavjud emas.</h4>
+</div>
+
+{% endfor %}
+	    				{% if projects.has_other_pages %}
+<div class="row mt-5">
+    <div class="col">
+        <div class="block-27">
+            <ul>
+
+                {% if projects.has_previous %}
+                    <li>
+                        <a href="?page={{ projects.previous_page_number }}">&lt;</a>
+                    </li>
+                {% endif %}
+
+                {% for num in projects.paginator.page_range %}
+                    {% if projects.number == num %}
+                        <li class="active">
+                            <span>{{ num }}</span>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if projects.has_next %}
+                    <li>
+                        <a href="?page={{ projects.next_page_number }}">&gt;</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
+	    			</div><!-- END-->
+	    		</div>
+	    	</div>
+	    </section>
+{% endblock %}

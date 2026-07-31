@@ -1,0 +1,78 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+			<section class="ftco-section contact-section">
+	      <div class="container">
+	        <div class="row d-flex mb-5 contact-info">
+	          <div class="col-md-12 mb-4">
+	            <h2 class="h4 font-weight-bold">Bog'lanish</h2>
+	          </div>
+	          <div class="w-100"></div>
+	          <div class="col-md-4">
+	            <p><span>Address:</span><a href="https://yandex.uz/maps/-/CTrGAMi8" TARGET="_blank"> Manzilobod 1-ko'chasi, 236-uy</a></p>
+	          </div>
+	          <div class="col-md-4">
+	            <p><span>Telefon:</span> <a href="tel:+998915322231">+998 91 532 22 31</a></p>
+	          </div>
+	          <div class="col-md-4">
+	            <p><span>Email:</span> <a href="mailto:ergashevtech1@gmail.com">ergashevtech1@gmail.com</a></p>
+	          </div>
+	        </div>
+			  {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+	        <div class="row block-9">
+	          <div class="col-md-6 order-md-last pr-md-5">
+	            <form method="POST" action="{% url 'contact' %}">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <input
+            type="text"
+            name="name"
+            class="form-control"
+            placeholder="Ismingiz"
+            required>
+    </div>
+
+    <div class="form-group">
+        <input
+            type="text"
+            name="phone"
+            class="form-control"
+            placeholder="+998 90 123 45 67"
+            required>
+    </div>
+
+    <div class="form-group">
+        <textarea
+            name="message"
+            cols="30"
+            rows="7"
+            class="form-control"
+            placeholder="Xabaringiz..."
+            required></textarea>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary py-3 px-5">
+            Yuborish
+        </button>
+    </div>
+
+</form>
+	          
+	          </div>
+
+	          <div class="col-md-6">
+	          	<div style="position:relative;overflow:hidden;"><a href="https://yandex.uz/maps/10334/samarkand/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Samarqand</a><a href="https://yandex.uz/maps/105810/samarqand-province/house/manzilobod_1_ko_chasi_236/Yk8Yfw5oQEAOQF1jfXpzeH1kbQ==/?ll=66.999044%2C39.629140&utm_medium=mapframe&utm_source=maps&z=19.82" style="color:#eee;font-size:12px;position:absolute;top:14px;">Yandex Maps – transport, navigatsiya, joylarni qidirish</a><iframe src="https://yandex.uz/map-widget/v1/?ll=66.999044%2C39.629140&mode=whatshere&whatshere%5Bpoint%5D=66.998874%2C39.629147&whatshere%5Bzoom%5D=17&z=19.82" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+	          </div>
+	        </div>
+	      </div>
+	    </section>
+{% endblock %}
