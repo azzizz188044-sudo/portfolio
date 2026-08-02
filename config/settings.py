@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     "ergashevtech.uz",
     "www.ergashevtech.uz",
     "13.60.255.186",
+    "127.0.0.1:8000",
 ]
 
 # Application definition
