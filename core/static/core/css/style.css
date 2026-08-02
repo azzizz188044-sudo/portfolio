@@ -8547,14 +8547,15 @@ textarea.form-control {
     stroke-dashoffset: -136px; } }
 
 @media (max-width: 768px) {
-    /* Mobilda qat'iy balandlikni yechib, kontent o'lchamiga qarab moslashuvchan qilamiz */
+    /* Mobil ekranda JavaScript bergan qat'iy 100% balandlikni yechib tashlaymiz */
     .js-fullheight {
         height: auto !important;
-        min-height: 100vh;
+        min-height: 100vh !important;
     }
 
-    /* Rasmingiz markazda turishi uchun */
-    .hero-wrap .img {
-        margin: 0 auto 1.5rem auto !important;
+    /* Blok ichidagi elementlar ham balandlik bo'yicha cheklanib qolmasligi uchun */
+    .hero-wrap, .hero-wrap-2, .hero-wrap .d-flex {
+        height: auto !important;
+        min-height: 100vh !important;
     }
 }
