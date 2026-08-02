@@ -8545,3 +8545,16 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+@media (max-width: 768px) {
+    /* Mobilda qat'iy balandlikni yechib, kontent o'lchamiga qarab moslashuvchan qilamiz */
+    .js-fullheight {
+        height: auto !important;
+        min-height: 100vh;
+    }
+
+    /* Rasmingiz markazda turishi uchun */
+    .hero-wrap .img {
+        margin: 0 auto 1.5rem auto !important;
+    }
+}
