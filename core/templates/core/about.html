@@ -2,20 +2,23 @@
 {% load static %}
 
 {% block content %}
-			<div class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{% static 'core/images/bg_1.jpg' %}');" data-stellar-background-ratio="0.5">
+			<!-- js-fullheight o'rniga faqat min-vh-100 qo'yildi, o'zining original background stillari tegilsiz qoldi -->
+<div class="hero-wrap hero-wrap-2 min-vh-100 h-auto" style="background-image: url('{% static 'core/images/bg_1.jpg' %}');" data-stellar-background-ratio="0.5">
    <div class="overlay"></div>
-   <!-- py-5 va py-md-5 mobil qurilmalarda kontent siqilib qolmasligini ta'minlaydi -->
-   <div class="js-fullheight d-flex justify-content-center align-items-center py-5">
-      <!-- col-lg-8 va col-md-10 kontent kengligini ekran o'lchamiga qarab chiroyli taqsimlaydi -->
-      <div class="col-lg-8 col-md-10 col-12 text text-center my-auto px-3">
-         <div class="img mb-4" style="background-image: url('{% static 'core/images/author1.jpg' %}'); mx-auto"></div>
+
+   <!-- Ichki blokdan min-vh-100 olib tashlandi, faqat py-5 (padding) qoldi. Bu pastdagi ulkan bo'shliqni yo'qotadi -->
+   <div class="d-flex justify-content-center align-items-center py-5">
+      <div class="col-md-8 text text-center my-auto px-3">
+
+         <!-- Rasm va uning original klasslari o'z joyida -->
+         <div class="img mb-4" style="background-image: url('{% static 'core/images/author1.jpg' %}');"></div>
+
          <div class="desc">
             <h2 class="subheading">ergashevtech</h2>
             <h1 class="mb-4">Aziz Ergashev</h1>
 
-            <!-- text-align: justify olib tashlandi, chunki u mobilda xunuk bo'shliqlar chiqaradi -->
-            <!-- text-start text-md-center matnni mobilda chapdan, kompyuterda esa o'rtadan ko'rsatadi -->
-            <p class="mb-4 text-start text-md-center" style="line-height: 1.8; font-size: 16px;">
+            <!-- text-align: justify o'rniga Bootstrap orqali mobilda chiroyli tekislash -->
+            <p class="mb-4 text-start text-md-center" style="line-height: 1.9;">
                Men biznes jarayonlarini avtomatlashtirish uchun
                <strong>Telegram botlar</strong> ishlab chiqaman. Har bir loyihada kod sifati,
                xavfsizlik va foydalanuvchi qulayligini birinchi o'ringa qo'yaman.
@@ -36,7 +39,6 @@
             <ul class="ftco-social mt-3">
                <li class="ftco-animate"><a href="https://t.me/ergashev_dev"><span class="icon-telegram"></span></a></li>
                <li class="ftco-animate"><a href="https://instagram.com/ergashevtech" target="_blank"><span class="icon-instagram"></span></a></li>
-               <!-- w.me o'rniga wa.me ga o'zgartirildi (oldingi xatolik uchun) -->
                <li class="ftco-animate"><a href="https://wa.me/998915322231" target="_blank"><span class="icon-whatsapp"></span></a></li>
                <li class="ftco-animate"><a href="#"><span class="icon-linkedin"></span></a></li>
             </ul>
